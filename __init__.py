@@ -18,16 +18,16 @@ class DatabaseSqlite(Database):
 
     async def connect(self, opsdroid):
         """Connect to the database."""
-        file = self.config.get("file", "sqlite.db")
+        db_file = self.config.get("file", "sqlite.db")
         table = self.config.get("table", "opsdroid")
 
-        self.conn = sqlite3.connect(file, isolation_level=None)
+        self.conn = sqlite3.connect(db_file, isolation_level=None)
         self.table = table
         self.conn.execute(
             "CREATE TABLE IF NOT EXISTS {} (key text PRIMARY KEY, data text)"
             .format(self.table)
         )
-        logging.info("Connected to sqlite {}".format(file))
+        logging.info("Connected to sqlite {}".format(db_file))
 
     async def put(self, key, data):
         """Insert or replace an object into the database for a given key."""
