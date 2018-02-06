@@ -1,7 +1,9 @@
+import os
 import logging
 import json
 import aiosqlite
 
+from opsdroid.const import DEFAULT_ROOT_PATH
 from opsdroid.database import Database
 
 
@@ -19,7 +21,8 @@ class DatabaseSqlite(Database):
 
     async def connect(self, opsdroid):
         """Connect to the database."""
-        self.db_file = self.config.get("file", "sqlite.db")
+        self.db_file = self.config.get(
+            "file", os.path.join(DEFAULT_ROOT_PATH, "sqlite.db"))
         self.table = self.config.get("table", "opsdroid")
 
         async with aiosqlite.connect(self.db_file, **self.conn_args) as db:

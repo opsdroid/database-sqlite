@@ -13,6 +13,6 @@ None.
 ```yaml
 databases:
   sqlite:
-    file: "my_file.db"  # (optional) default "sqlite.db"
+    file: "my_file.db"  # (optional) default "~/.opsdroid/sqlite.db"
     table: "my_table"  # (optional) default "opsdroid"
 ```
