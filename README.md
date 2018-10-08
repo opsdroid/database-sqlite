@@ -1,3 +1,5 @@
+⚠️ *DEPRECATED* ⚠️ This database module is now built in to [opsdroid core](https://opsdroid.readthedocs.io/en/stable/databases/sqlite/). This repository only exists for backward compatibility and will be removed.
+
 opsdroid database sqlite
 ========================
 
